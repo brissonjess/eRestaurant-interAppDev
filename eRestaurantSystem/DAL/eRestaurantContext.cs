@@ -13,7 +13,7 @@ namespace eRestaurantSystem.DAL
 {
     internal class eRestaurantContext:DbContext
     {
-        public eRestaurantContext():base("eRestaurentDB")
+        public eRestaurantContext():base("eRestaurantDB")
         {
 
         }
