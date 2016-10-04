@@ -44,27 +44,27 @@ namespace eRestaurantSystem.BLL
 
 
         }
-    }
-    [DataObjectMethod(DataObjectMethodType.Select, false)]
-    public List<MenuCategoryFoodItemsPOCO> MenuCategoryFoodItemsPOCO_Get()
-    {
-        using (var context = new eRestaurantContext())
+    
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<MenuCategoryFoodItemsPOCO> MenuCategoryFoodItemsPOCO_Get()
         {
+            using (var context = new eRestaurantContext())
+            {
 
-            var results = from food in context.Items
-                          orderby food.MenuCategory.Description
-                          select new MenuCategoryFoodItemsPOCO
-                          {
-                              MenuCategoryDescription = food.MenuCategory.Description,
-                              ItemID = food.ItemID,
-                              FoodDescription = food.Description,
-                              CurrentPrice = food.CurrentPrice,
-                              //TimeServed = food.BillItems.Count()
-                              TimeServed = 10
-                          };
-            return results.ToList();
+                var results = from food in context.Items
+                              orderby food.MenuCategory.Description
+                              select new MenuCategoryFoodItemsPOCO
+                              {
+                                  MenuCategoryDescription = food.MenuCategory.Description,
+                                  ItemID = food.ItemID,
+                                  FoodDescription = food.Description,
+                                  CurrentPrice = food.CurrentPrice,
+                                  //TimeServed = food.BillItems.Count()
+                                  TimeServed = 10
+                              };
+                return results.ToList();
+            }
         }
     }
 }
-   
-}
+
